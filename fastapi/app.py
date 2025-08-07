@@ -47,7 +47,7 @@ async def upload_pdf(file: UploadFile = File(...)):
 @app.post("/ask")
 def ask_question(
     question: str = Form(...),
-    session_id: str = Form(None)  # ← Accept session ID from frontend
+    session_id: str = Form(None)  # session ID from frontend
 ):
     if not session_id:
         raise HTTPException(status_code=400, detail="Missing session ID.")
@@ -60,7 +60,7 @@ def ask_question(
             "pdf_chunks": [],
         }
 
-    # 🔑 Here's your current_session
+    # current_session
     current_session = session_state[session_id]
 
     # Decide which index and chunks to use
@@ -73,11 +73,12 @@ def ask_question(
     else:
         raise HTTPException(status_code=500, detail="No valid index available.")
 
-    # Do the actual RAG QA
-    top_chunks = retrieve_top_k(question, index, chunks)
+    # actual RAG QA
+    top_chunks, confidence_score = retrieve_top_k(question, index, chunks)
     answer = generate_answer(question, top_chunks)
 
     return {
         "answer": answer,
-        "source_chunks": top_chunks
+        "source_chunks": top_chunks,
+        "confidence_score": round(confidence_score, 3)
     }

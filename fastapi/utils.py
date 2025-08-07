@@ -55,7 +55,13 @@ def process_pdf_to_index(pdf_path):
 def retrieve_top_k(query, index, texts, k=3):
     query_embedding = embedding_model.encode([query])
     distances, indices = index.search(np.array(query_embedding), k)
-    return [texts[i] for i in indices[0]]
+    retrieved_chunks = [texts[i] for i in indices[0]]
+    
+    # Confidence Score Calculation (based on L2 distance)
+    similarity_scores = 1 / (1 + distances[0])          # Convert distance to similarity
+    confidence_score = float(similarity_scores.mean())  # Average similarity
+
+    return retrieved_chunks, confidence_score
 
 def generate_answer(question, top_chunks):
     context = "\n\n".join(top_chunks)

@@ -1,10 +1,5 @@
 name: Demo RAG App via Ngrok
 
-on:
-  push:
-    branches:
-      - main
-
 jobs:
   deploy-ngrok-demo:
     runs-on: ubuntu-latest

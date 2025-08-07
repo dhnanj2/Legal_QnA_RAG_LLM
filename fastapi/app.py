@@ -11,7 +11,13 @@ from utils import (
 app = FastAPI()
 
 # Session state
-session_state = {}
+session_state = {
+    "active_index": "cuad",
+    "cuad_index": None,
+    "pdf_index": None,
+    "cuad_chunks": [],
+    "pdf_chunks": []
+}
 
 @app.on_event("startup")
 def load_indices():
@@ -53,25 +59,12 @@ def ask_question(
         raise HTTPException(status_code=400, detail="Missing session ID.")
 
     # Create a session if it doesn't exist
-    if session_id not in session_state:
-        session_state[session_id] = {
-            "active_index": "cuad",
-            "pdf_index": None,
-            "pdf_chunks": [],
-        }
-
-    # current_session
-    current_session = session_state[session_id]
-
-    # Decide which index and chunks to use
-    if current_session["active_index"] == "pdf" and current_session["pdf_index"]:
-        index = current_session["pdf_index"]
-        chunks = current_session["pdf_chunks"]
-    elif session_state.get("cuad_index") and session_state.get("cuad_chunks"):
-        index = session_state["cuad_index"]
-        chunks = session_state["cuad_chunks"]
+    if session_state["active_index"] == "pdf":
+        chunks = session_state["pdf_chunks"]
+        index = session_state["pdf_index"]
     else:
-        raise HTTPException(status_code=500, detail="No valid index available.")
+        chunks = session_state["cuad_chunks"]
+        index = session_state["cuad_index"]
 
     # actual RAG QA
     top_chunks, confidence_score = retrieve_top_k(question, index, chunks)

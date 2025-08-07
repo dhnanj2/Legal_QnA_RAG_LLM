@@ -3,3 +3,4 @@
 fastapi/__pycache__
 fastapi/uploads/
 data/
+*.pptx

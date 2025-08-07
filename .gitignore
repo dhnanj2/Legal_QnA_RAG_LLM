@@ -1,4 +1,5 @@
 .venv
 .vscode/
 fastapi/__pycache__
+fastapi/uploads/
 data/

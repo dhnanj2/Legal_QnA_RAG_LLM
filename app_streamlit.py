@@ -37,10 +37,17 @@ if st.button("Submit Question") and question:
 
     if response.status_code == 200:
         result = response.json()
+
+        # Confidence Score
+        confidence = result.get("confidence_score", None)
+        if confidence is not None:
+            st.metric("🔒 Confidence Score", f"{confidence * 100:.1f}%")
+        
+        # Display Answer
         st.markdown("### 🤖 Answer")
         st.success(result["answer"])
 
-        # 📑 Show top retrieved chunks
+        # Show top retrieved chunks
         if "source_chunks" in result:
             st.markdown("### 📑 Top 3 Relevant Contexts")
             for i, chunk in enumerate(result["source_chunks"], 1):

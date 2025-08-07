@@ -1,0 +1,86 @@
+(.venv) PS E:\EXL\training\capstone> python -u .\eval.py
+✅ PDF uploaded successfully.
+
+🔹 Question 1: What is the governing law in this contract?
+🔒 Confidence Score: 57.60%
+⏱️ Latency: 6.59 seconds
+
+🔹 Question 2: What are the obligations of the seller? 
+🔒 Confidence Score: 60.50%
+⏱️ Latency: 16.68 seconds
+
+🔹 Question 3: What rights does the buyer have under this agreement?
+🔒 Confidence Score: 60.70%
+⏱️ Latency: 12.52 seconds
+
+🔹 Question 4: Who are the parties to this contract?   
+🔒 Confidence Score: 55.80%
+⏱️ Latency: 7.62 seconds
+
+🔹 Question 5: What is the term or duration of this agreement?
+🔒 Confidence Score: 63.60%
+⏱️ Latency: 10.13 seconds
+
+🔹 Question 6: What are the payment terms outlined in the contract?
+🔒 Confidence Score: 59.20%
+⏱️ Latency: 13.60 seconds
+
+🔹 Question 7: Does the contract mention any late payment penalties?
+🔒 Confidence Score: 56.50%
+⏱️ Latency: 15.05 seconds
+
+🔹 Question 8: Is there an audit clause mentioned?     
+🔒 Confidence Score: 57.30%
+⏱️ Latency: 10.12 seconds
+
+🔹 Question 9: What confidentiality obligations are imposed?
+🔒 Confidence Score: 67.90%
+⏱️ Latency: 19.33 seconds
+
+🔹 Question 10: Is there a non-disclosure clause in this agreement?
+🔒 Confidence Score: 70.00%
+⏱️ Latency: 9.59 seconds
+
+🔹 Question 11: Who owns the intellectual property developed under this contract?
+🔒 Confidence Score: 58.80%
+⏱️ Latency: 12.72 seconds
+
+🔹 Question 12: How can the agreement be terminated?
+🔒 Confidence Score: 65.80%
+⏱️ Latency: 15.29 seconds
+
+🔹 Question 13: What happens upon termination of the agreement?
+🔒 Confidence Score: 69.30%
+⏱️ Latency: 11.30 seconds
+
+🔹 Question 14: Is there a dispute resolution clause?
+🔒 Confidence Score: 65.00%
+⏱️ Latency: 8.65 seconds
+
+🔹 Question 15: What representations and warranties are provided?
+🔒 Confidence Score: 64.20%
+⏱️ Latency: 10.52 seconds
+
+🔹 Question 16: Are there any limitations on liability?
+🔒 Confidence Score: 71.20%
+⏱️ Latency: 12.89 seconds
+
+🔹 Question 17: What deliverables are expected from the vendor?
+🔒 Confidence Score: 57.40%
+⏱️ Latency: 10.99 seconds
+
+🔹 Question 18: Is there a defined scope of work?      
+🔒 Confidence Score: 48.70%
+⏱️ Latency: 8.36 seconds
+
+🔹 Question 19: Does the contract allow for assignment to third parties?
+🔒 Confidence Score: 60.50%
+⏱️ Latency: 13.46 seconds
+
+🔹 Question 20: Are there any indemnification obligations?
+🔒 Confidence Score: 63.60%
+⏱️ Latency: 10.18 seconds
+
+==================================================     
+📈 Average Confidence Score: 61.68%
+⏱️ Average Latency: 11.78 seconds
